@@ -74,6 +74,7 @@ authRouter.get("/signup", async (req, res) => {
             key: user[0]._id.toString(),
             message: "signup successful",
           });
+          return;
         } catch (err) {
           res.send(err);
         }
