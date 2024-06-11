@@ -25,6 +25,7 @@ authRouter.get("/login", async (req, res) => {
         res.send({
           status: 200,
           result: result,
+          key: user[0]._id.toString(),
           message: "login details successful",
         });
       } else {
@@ -68,8 +69,9 @@ authRouter.get("/signup", async (req, res) => {
         });
         try {
           const result = await su.save();
-          res.send({  
+          res.send({
             status: 200,
+            key: user[0]._id.toString(),
             message: "signup successful",
           });
         } catch (err) {
