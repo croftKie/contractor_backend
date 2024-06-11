@@ -69,9 +69,11 @@ authRouter.get("/signup", async (req, res) => {
         });
         try {
           const result = await su.save();
+          console.log(result);
           res.send({
             status: 200,
-            key: user[0]._id.toString(),
+            result: true,
+            key: result._id.toString(),
             message: "signup successful",
           });
           return;
