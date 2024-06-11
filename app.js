@@ -11,9 +11,9 @@ const cors = require("cors");
 
 const app = express();
 const port = process.env.PORT | 3000;
-var accessLogStream = fs.createWriteStream(path.join(__dirname, "access.log"), {
-  flags: "a",
-});
+// var accessLogStream = fs.createWriteStream(path.join(__dirname, "access.log"), {
+//   flags: "a",
+// });
 
 app.use(cors());
 
@@ -23,7 +23,7 @@ app.use((req, res, next) => {
   console.log(req.method, req.hostname, req.path, req.time);
   next();
 });
-app.use(morgan("combined", { stream: accessLogStream }));
+// app.use(morgan("combined", { stream: accessLogStream }));
 
 app.use("/api", apiRouter);
 app.use("/auth", authRouter);
