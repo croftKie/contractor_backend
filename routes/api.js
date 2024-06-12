@@ -34,9 +34,10 @@ apiRouter.get("/searchAny", async (req, res) => {
   res.send(data);
 });
 apiRouter.get("/searchFiltered", async (req, res) => {
+  console.log(req.query);
   const values = {};
   values.query = req.query.query ? req.query.query : "";
-  values.date = req.query.date ? req.query.date : "any";
+  values.date = req.query.date ? req.query.date : "month";
   values.remote = req.query.remote ? req.query.remote : "false";
   values.type = req.query.type
     ? req.query.type
