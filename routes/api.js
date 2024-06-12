@@ -36,10 +36,14 @@ apiRouter.get("/searchAny", async (req, res) => {
 apiRouter.get("/searchFiltered", async (req, res) => {
   const values = {};
   values.query = req.query.query ? req.query.query : "";
-  values.date = req.query.date ? req.query.date : "";
-  values.remote = req.query.remote ? req.query.remote : "";
-  values.type = req.query.type ? req.query.type : "";
-  values.reqs = req.query.reqs ? req.query.reqs : "";
+  values.date = req.query.date ? req.query.date : "any";
+  values.remote = req.query.remote ? req.query.remote : "false";
+  values.type = req.query.type
+    ? req.query.type
+    : "FULLTIME,CONTRACTOR,PARTTIME,INTERN";
+  values.reqs = req.query.reqs
+    ? req.query.reqs
+    : "under_3_years_experience,more_than_3_years_experience,no_experience,no_degree";
 
   if (values.query === "") {
     res.sendStatus(400);
